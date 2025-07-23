@@ -1,7 +1,18 @@
 1. Создаем проект с помощью команды cargo new static-server. Эта команда сформерует корневую директорию проекта,
 где будут располагаться Cargo.toml, src и так далее. 
 
-2. Сразу загрузим его в GitHub. 
+2. Сразу загрузим его в GitHub. Перейдем в свой профиль на GitHub и создадим новый репазиторий. 
+Введем следующие команды, находясь в корневой директории:
+git init
+git add .
+git commit -m "commit"
+git remote add origin git@github.com:NAME/NAME_REPOSITORY.git (ссылку можно скопировать в GitHub)
+git branch -M main (переименовываем с master на main)
+git push -u origin main
+После этого мы должны видеть проект на GitHub
 
-
-3. Добавим зависимости в Cargo.toml. Нам потребуется HTTP-фреймворк axum, tokio для асинхронности и tower-http 
+3. Добавим зависимости в Cargo.toml. Нам потребуется HTTP-фреймворк axum, tokio для асинхронности и tower-http.
+В разделе [dependencies] введем:
+axum = "0.8.4"
+tokio = { version = "1.0", features = ["full"] }
+tower-http = { version = "0.5", features = ["fs"] } 
